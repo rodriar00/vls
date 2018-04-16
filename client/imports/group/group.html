@@ -1,0 +1,33 @@
+<template name='group'>
+    <div class='container-fluid'>
+
+        <div>
+            <h3>
+                {{group.name}}
+                <h6 class="float-right">{{moment group.limit}}</h6>
+            </h3>
+            <p class="small text-muted">{{group.detail}}</p>
+            <ul class="list-group">
+                {{#each user in group.users}}
+                    <li class='list-group-item'>
+                            {{findUserName user}}
+                    </li>
+                {{/each}}
+            </ul>
+
+        </div>
+
+        <div>
+            <button id="end-task" class="btn btn-link float-right">Eliminar</button>
+            <button id="add-resource" class="btn btn-link float-right">Añadir</button>
+            <button id="modify-info" class="btn btn-link float-right">Modificar</button>
+        </div>
+        
+        
+    </div>
+
+
+
+</template>
+
+
