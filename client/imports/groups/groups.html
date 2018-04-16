@@ -1,0 +1,28 @@
+<template name="groups">
+    <div class="container-fluid">
+        <h6 class="category">Tus grupos</h6>
+        {{#if notEmpty myGroups}}
+            <ul class="list-group">
+                {{#each group in myGroups}}
+                    <li class="list-group-item">{{group.name}}</li>
+                {{/each}}
+            </ul>
+        {{else}}
+            <p class="text-muted">No eres el administrador de ningún grupo</p>
+        {{/if}}
+    
+        <h6 class="category">Otros grupos</h6>
+        {{#if notEmpty otherGroups}}
+            <ul class="list-group">
+                {{#each group in otherGroups}}
+                    <li groupid="{{group._id}}" class="list-group-item group">{{group.name}}<span class="float-right text-muted">{{findUserName group.owner}}</span>
+                        <p class="small">{{group.detail}}</p>
+                    </li>
+                {{/each}}
+            </ul>
+        {{else}}
+            <p class="text-muted">No hay grupos que mostrar</p>
+        {{/if}}
+    </div>
+    
+</template>
